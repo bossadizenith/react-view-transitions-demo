@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CollectionGrid } from "./collection-grid";
 
@@ -18,40 +17,9 @@ export default async function CollectionPage({
   if (!COLLECTION_SLUGS.includes(slug)) notFound();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-1.5 font-mono text-xs text-white/40 hover:text-white transition-colors mb-8"
-      >
-        ← Gallery
-      </Link>
-
-      <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-white capitalize mb-1">
-          {slug}
-        </h1>
-      </div>
-
-      <div className="flex items-center gap-2 mb-10 border-b border-white/10 pb-6">
-        {COLLECTION_SLUGS.map((s) => (
-          <Link
-            key={s}
-            href={`/collection/${s}`}
-            className={`px-3 py-1.5 rounded font-mono text-xs transition-colors capitalize ${
-              s === slug
-                ? "bg-white/10 text-white border border-white/20"
-                : "text-white/40 hover:text-white"
-            }`}
-          >
-            {s}
-          </Link>
-        ))}
-      </div>
-
-      <Suspense fallback={<CollectionGridSkeleton />}>
-        <CollectionGrid slug={slug} />
-      </Suspense>
-    </div>
+    <Suspense fallback={<CollectionGridSkeleton />}>
+      <CollectionGrid slug={slug} />
+    </Suspense>
   );
 }
 
