@@ -24,7 +24,7 @@ export async function CollectionGrid({ slug }: { slug: string }) {
               alt={`${photo.title} — ${photo.location}`}
               width={photo.w}
               height={photo.h}
-              className="w-full h-full object-cover block"
+              className="w-full h-full object-cover block rounded-lg"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={i < 3}
             />
