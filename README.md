@@ -50,7 +50,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Using the Skill
 
-Install the [React View Transitions skill](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-view-transitions) into your agent, then prompt it against this codebase:
+Install the [React View Transitions skill](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-view-transitions) into your agent:
+
+```bash
+npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-view-transitions
+```
+
+Then prompt it against this branch:
 
 ```
 Add view transitions to this app using the view transitions skill
