@@ -16,24 +16,26 @@ export async function PhotoContent({ id }: { id: string }) {
 
   return (
     <>
-      <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8">
-        {prevPhoto ? (
-          <Link
-            href={`/photo/${prevPhoto.id}`}
-            transitionTypes={["nav-back"]}
-            className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-colors"
-          >
-            ←
-          </Link>
-        ) : (
-          <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full border border-white/5 text-white/20 cursor-not-allowed">
-            ←
-          </span>
-        )}
+      <div className="relative mb-4 sm:mb-8">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+          {prevPhoto ? (
+            <Link
+              href={`/photo/${prevPhoto.id}`}
+              transitionTypes={["nav-back"]}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/50 text-white/60 hover:text-white hover:border-white/30 transition-colors"
+            >
+              ←
+            </Link>
+          ) : (
+            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/5 bg-black/50 text-white/20 cursor-not-allowed">
+              ←
+            </span>
+          )}
+        </div>
 
         <ViewTransition name={`photo-${photo.id}`} share="morph">
           <div
-            className="relative flex-1 max-h-[25vh] md:max-h-[30vh] lg:max-h-[40vh] overflow-hidden rounded-lg"
+            className="relative mx-auto max-h-[25vh] md:max-h-[30vh] lg:max-h-[40vh] max-w-full overflow-hidden rounded-lg"
             style={{ aspectRatio: `${photo.w}/${photo.h}` }}
           >
             <Image
@@ -43,24 +45,26 @@ export async function PhotoContent({ id }: { id: string }) {
               fill
               className="object-contain"
               priority
-              sizes="(max-width: 1024px) 80vw, 70vw"
+              sizes="(max-width: 1024px) 100vw, 80vw"
             />
           </div>
         </ViewTransition>
 
-        {nextPhoto ? (
-          <Link
-            href={`/photo/${nextPhoto.id}`}
-            transitionTypes={["nav-forward"]}
-            className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-colors"
-          >
-            →
-          </Link>
-        ) : (
-          <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full border border-white/5 text-white/20 cursor-not-allowed">
-            →
-          </span>
-        )}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+          {nextPhoto ? (
+            <Link
+              href={`/photo/${nextPhoto.id}`}
+              transitionTypes={["nav-forward"]}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/50 text-white/60 hover:text-white hover:border-white/30 transition-colors"
+            >
+              →
+            </Link>
+          ) : (
+            <span className="flex items-center justify-center w-10 h-10 rounded-full border border-white/5 bg-black/50 text-white/20 cursor-not-allowed">
+              →
+            </span>
+          )}
+        </div>
       </div>
 
       <div>
@@ -94,13 +98,17 @@ export async function PhotoContent({ id }: { id: string }) {
 export function PhotoContentSkeleton() {
   return (
     <>
-      <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-8 animate-pulse">
-        <div className="shrink-0 w-10 h-10 rounded-full border border-white/5 bg-white/5" />
+      <div className="relative mb-4 sm:mb-8 animate-pulse">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+          <div className="w-10 h-10 rounded-full border border-white/5 bg-white/5" />
+        </div>
         <div
-          className="flex-1 max-h-[25vh] md:max-h-[30vh] lg:max-h-[40vh] overflow-hidden rounded-lg bg-white/5"
+          className="mx-auto max-h-[25vh] md:max-h-[30vh] lg:max-h-[40vh] overflow-hidden rounded-lg bg-white/5"
           style={{ aspectRatio: "4/3" }}
         />
-        <div className="shrink-0 w-10 h-10 rounded-full border border-white/5 bg-white/5" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+          <div className="w-10 h-10 rounded-full border border-white/5 bg-white/5" />
+        </div>
       </div>
       <div className="border-t border-white/10 pt-8 animate-pulse">
         <div className="space-y-3">
