@@ -17,7 +17,7 @@ export default async function CollectionPage({
   if (!COLLECTION_SLUGS.includes(slug)) notFound();
 
   return (
-    <Suspense fallback={<CollectionGridSkeleton />}>
+    <Suspense key={slug} fallback={<CollectionGridSkeleton />}>
       <CollectionGrid slug={slug} />
     </Suspense>
   );

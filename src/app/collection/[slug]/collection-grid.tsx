@@ -11,7 +11,7 @@ export async function CollectionGrid({ slug }: { slug: string }) {
       <p className="font-mono text-xs text-white/40 -mt-6 mb-6">
         {collectionPhotos.length} photo{collectionPhotos.length !== 1 ? "s" : ""}
       </p>
-      <div key={slug} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {collectionPhotos.map((photo, i) => (
           <Link
             key={photo.id}
