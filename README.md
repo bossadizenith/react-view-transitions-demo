@@ -1,4 +1,4 @@
-# View Transitions Demo
+# React View Transitions Demo
 
 A Next.js photography gallery built to showcase the **React View Transitions** agent skill. The app provides a feature-rich surface area — sortable grids, search filtering, Suspense loading states, toggleable panels, and keyed content swaps — specifically designed so each feature maps to a view transition pattern from the skill.
 
@@ -26,10 +26,16 @@ The `main` branch is intentionally animation-free. Install the [React View Trans
 
 ## Tech Stack
 
-- **Next.js 16** (App Router)
+- **Next.js 16** (App Router, Cache Components)
 - **React 19** (`react@canary` for `<ViewTransition>`)
 - **Tailwind CSS v4**
 - **shadcn/ui** (base-nova)
+
+## Architecture
+
+- **`data/queries/`** — Data access layer with `"use cache"` + `cacheTag`/`cacheLife`, wrapped in React `cache()` for request deduplication
+- **`lib/`** — Types, raw data, and client-side utilities
+- **Pages as static shells** — Dynamic data fetching pushed into child server components with Suspense boundaries
 
 ## Getting Started
 

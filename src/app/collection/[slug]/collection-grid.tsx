@@ -16,7 +16,7 @@ export async function CollectionGrid({ slug }: { slug: string }) {
           <Link
             key={photo.id}
             href={`/photo/${photo.id}`}
-            className="group relative block overflow-hidden rounded-lg"
+            className="group relative block overflow-hidden rounded-lg aspect-[4/3]"
           >
             <Image
               data-photo-id={photo.id}
@@ -24,8 +24,7 @@ export async function CollectionGrid({ slug }: { slug: string }) {
               alt={`${photo.title} — ${photo.location}`}
               width={photo.w}
               height={photo.h}
-              className="w-full h-auto block"
-              style={{ aspectRatio: `${photo.w}/${photo.h}` }}
+              className="w-full h-full object-cover block"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={i < 3}
             />

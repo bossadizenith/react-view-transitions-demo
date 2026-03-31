@@ -83,7 +83,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
           <Link
             key={photo.id}
             href={`/photo/${photo.id}`}
-            className="group relative block overflow-hidden rounded-lg"
+            className="group relative block overflow-hidden rounded-lg aspect-[4/3]"
           >
             <Image
               data-photo-id={photo.id}
@@ -91,8 +91,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
               alt={`${photo.title} — ${photo.location}`}
               width={photo.w}
               height={photo.h}
-              className="w-full h-auto block"
-              style={{ aspectRatio: `${photo.w}/${photo.h}` }}
+              className="w-full h-full object-cover block"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end">
