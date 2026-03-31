@@ -15,13 +15,21 @@ A Next.js photography gallery showcasing the [React View Transitions agent skill
 
 | Feature | Pattern |
 |---------|---------|
-| Sortable photo grid | List reorder with `startTransition` |
-| Search filtering | Cross-fade with `useDeferredValue` |
-| Instant sort feedback | `useOptimistic` + excluded from snapshot via `viewTransitionName` |
+| Photo thumbnail → hero image | Shared element morph with named `ViewTransition` |
+| Forward/back navigation | Directional slides via `transitionTypes` on `next/link` |
 | Skeleton → content reveal | Suspense fallback slides out, content slides in |
-| Photographer tab switching | Keyed content swap |
-| Photo thumbnail → hero image | Shared element morph |
-| Forward/back navigation | Directional slides with `transitionTypes` |
+| Photographer tab switching | `key` + `name` + `share` for same-route crossfade |
+| Search filtering | Server-side filtering via URL search params with `startTransition` |
+| Instant sort feedback | `useOptimistic` for immediate button highlight |
+| Element isolation | Header and search bar excluded from page slides via `viewTransitionName` |
+| Reduced motion | All animations disabled with `prefers-reduced-motion: reduce` |
+
+## App Features
+
+- **Gallery page** — Searchable, sortable photo grid with URL-based state (`?q=...&sort=...`)
+- **Photo detail page** — Responsive layout with hero image and metadata
+- **Photographers page** — Tab-based navigation between photographer collections
+- **Suspense boundaries** — Skeleton loading states throughout
 
 ## Try It
 
