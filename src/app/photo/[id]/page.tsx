@@ -32,18 +32,18 @@ export default async function PhotoPage({
       }}
       default="none"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-4 sm:py-10">
         <Link
           href="/"
           transitionTypes={["nav-back"]}
-          className="inline-flex items-center gap-1.5 font-mono text-xs text-white/40 hover:text-white transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 font-mono text-xs text-white/40 hover:text-white transition-colors mb-4 sm:mb-8"
         >
           ← Gallery
         </Link>
 
         <ViewTransition name={`photo-${photo.id}`} share="morph">
           <div
-            className="relative mx-auto mb-8 max-h-[60vh] max-w-full overflow-hidden rounded-lg"
+            className="relative mx-auto mb-4 sm:mb-8 max-h-[35vh] md:max-h-[45vh] lg:max-h-[60vh] max-w-full overflow-hidden rounded-lg"
             style={{ aspectRatio: `${photo.w}/${photo.h}` }}
           >
             <Image

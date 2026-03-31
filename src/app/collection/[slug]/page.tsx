@@ -17,23 +17,17 @@ export default async function CollectionPage({
   if (!COLLECTION_SLUGS.includes(slug)) notFound();
 
   return (
-    <ViewTransition
-      enter={{
-        "nav-forward": "nav-forward",
-        "nav-back": "nav-back",
-        default: "none",
-      }}
-      exit={{
-        "nav-forward": "nav-forward",
-        "nav-back": "nav-back",
-        default: "none",
-      }}
-      default="none"
-    >
-      <Suspense key={slug} fallback={<CollectionGridSkeleton />}>
+    <Suspense fallback={<CollectionGridSkeleton />}>
+      <ViewTransition
+        key={slug}
+        name="collection-content"
+        share="auto"
+        enter="auto"
+        default="none"
+      >
         <CollectionGrid slug={slug} />
-      </Suspense>
-    </ViewTransition>
+      </ViewTransition>
+    </Suspense>
   );
 }
 
@@ -42,7 +36,7 @@ function CollectionGridSkeleton() {
     <div className="animate-pulse">
       <div className="h-4 w-20 bg-white/5 rounded -mt-6 mb-6" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {Array.from({ length: 6 }).map((_, i) => (
+        {Array.from({ length: 3 }).map((_, i) => (
           <div key={i} className="bg-white/5 rounded-lg" style={{ aspectRatio: "4/3" }} />
         ))}
       </div>
