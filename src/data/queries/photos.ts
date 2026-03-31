@@ -14,12 +14,6 @@ export const getPhotos = cache(async (): Promise<Photo[]> => {
 });
 
 export const getPhoto = cache(async (id: string): Promise<Photo> => {
-  const photo = photos.find((p) => p.id === id) ?? null;
-  if (!photo) notFound();
-  return photo;
-});
-
-export const getPhotoAsync = cache(async (id: string): Promise<Photo> => {
   await delay(SIMULATED_DELAY_MS);
   const photo = photos.find((p) => p.id === id) ?? null;
   if (!photo) notFound();
