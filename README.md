@@ -2,14 +2,14 @@
 
 A Next.js photography gallery built to showcase the [React View Transitions agent skill](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-view-transitions). The app provides a feature-rich surface area — sortable grids, search filtering, Suspense loading states, toggleable panels, and keyed content swaps — specifically designed so each feature maps to a view transition pattern from the skill.
 
-**[Live Demo (animated)](https://react-view-transitions-demo.labs.vercel.dev/)**
+**[Live Demo](https://react-view-transitions-demo.labs.vercel.dev/)**
 
 ## Branches
 
-| Branch | Description | Deployment |
-|--------|-------------|------------|
-| [`main`](https://github.com/vercel-labs/react-view-transitions-demo/tree/main) | All view transition patterns applied | [react-view-transitions-demo.labs.vercel.dev](https://react-view-transitions-demo.labs.vercel.dev/) |
-| [`plain`](https://github.com/vercel-labs/react-view-transitions-demo/tree/plain) | Base app — no `<ViewTransition>` animations | [view-transitions-demo-5yuw-git-plain.labs.vercel.dev](https://view-transitions-demo-5yuw-git-plain.labs.vercel.dev/) |
+| Branch | Description |
+|--------|-------------|
+| [`main`](https://github.com/vercel-labs/react-view-transitions-demo/tree/main) | All view transition patterns applied |
+| [`plain`](https://github.com/vercel-labs/react-view-transitions-demo/tree/plain) | Base app — no `<ViewTransition>` animations |
 
 The `plain` branch is intentionally animation-free. It serves as the starting point — install the [React View Transitions skill](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-view-transitions) and ask your agent to "add view transitions". The skill guides it to apply the right pattern to each feature. The `main` branch shows the result.
 
