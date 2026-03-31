@@ -1,5 +1,8 @@
 import { Suspense } from "react";
-import { PhotographerList } from "./photographer-list";
+import {
+  PhotographerList,
+  PhotographerListSkeleton,
+} from "./photographer-list";
 
 export default function AboutPage() {
   return (
@@ -22,23 +25,6 @@ export default function AboutPage() {
           <PhotographerList />
         </Suspense>
       </section>
-    </div>
-  );
-}
-
-function PhotographerListSkeleton() {
-  return (
-    <div className="space-y-6 animate-pulse">
-      {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="flex items-center gap-4">
-          <div className="h-10 w-10 rounded-full bg-white/5" />
-          <div className="flex-1 space-y-2">
-            <div className="h-4 w-28 bg-white/5 rounded" />
-            <div className="h-3 w-36 bg-white/5 rounded" />
-          </div>
-          <div className="h-3 w-16 bg-white/5 rounded" />
-        </div>
-      ))}
     </div>
   );
 }
