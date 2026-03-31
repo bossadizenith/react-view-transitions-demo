@@ -20,6 +20,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} dark`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-black text-white font-sans antialiased">

@@ -127,7 +127,6 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
   }
 
   /* Smooth custom scrollbar */
