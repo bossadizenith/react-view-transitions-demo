@@ -79,7 +79,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
           isPending ? "opacity-60" : ""
         }`}
       >
-        {sorted.map((photo) => (
+        {sorted.map((photo, index) => (
           <Link
             key={photo.id}
             href={`/photo/${photo.id}`}
@@ -93,6 +93,7 @@ export function PhotoGrid({ photos }: { photos: Photo[] }) {
               height={photo.h}
               className="w-full h-full object-cover block"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              priority={index < 3}
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 flex items-end">
               <div className="p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
